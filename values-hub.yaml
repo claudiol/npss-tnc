@@ -9,16 +9,22 @@ clusterGroup:
   - open-cluster-management
   - vault
   - golang-external-secrets
+  - new-namespace
+  
   subscriptions:
     acm:
       name: advanced-cluster-management
       namespace: open-cluster-management
 
-#    kubevirt-hyperconverged:
-#      name: kubevirt-hyperconverged
-#      namespace: openshift-cnv
-#      source: redhat-operators
-#      channel: stable
+    amq-streams:
+      name: amq-streams                                                                                                                          
+      namespace: new-namespace
+      source: redhat-operators
+      
+    kubevirt-hyperconverged:
+      name: kubevirt-hyperconverged
+      namespace: openshift-cnv
+      source: redhat-operators
 
   projects:
   - hub
@@ -47,6 +53,12 @@ clusterGroup:
       project: hub
       path: common/golang-external-secrets
 
+    banner:
+      name: npss-tnc-banner
+      project: hub
+      kustomize: true
+      path: charts/mgt-hub/ocp-banner/base
+      
   imperative:
     # NOTE: We *must* use lists and not hashes. As hashes lose ordering once parsed by helm
     # The default schedule is every 10 minutes: imperative.schedule
