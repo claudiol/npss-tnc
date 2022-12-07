@@ -15,6 +15,7 @@ clusterGroup:
     acm:
       name: advanced-cluster-management
       namespace: open-cluster-management
+      channel: release-2.6
 
     amq-streams:
       name: amq-streams                                                                                                                          
